@@ -15,5 +15,11 @@
         "psr-4": { "Axelero\\AwsTranscoderBundle\\": "" 
             
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:fcamp/AxeleroAwsS3Bundle.git"
+        }
+    ]
 }

@@ -1,0 +1,16 @@
+{
+    "name": "axelero/aws-transcoder-bundle",
+    "type": "library",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "Francesco Campana",
+            "email": "francesco.campana.76@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Axelero\\AwsTranscoderBundle\\": "" 
+            
+        }
+    }
+}

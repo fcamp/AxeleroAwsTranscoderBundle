@@ -8,7 +8,7 @@
         }
     ],
     "require": {
-        "axelero/aws-s3-bundle": "^0.1"
+        "axelero/aws-s3-bundle": "0.1.*"
     },  
     "license": "mit",
     "autoload": {

@@ -21,8 +21,7 @@
         </service>
 
         <service id="axelero_aws_transcoder.gummy" class="%axelero_aws_transcoder.class%">
-            <argument>%axelero_aws_transcoder.input_bucket%</argument>
-            <argument>%axelero_aws_transcoder.output_bucket%</argument>
+            <argument>%axelero_aws_transcoder.pipeline_id%</argument>
             <argument type="service" id="axelero_aws_transcoder.services.preset_provider"/>
             <argument type="service" id="axelero_aws_transcoder.client"/>
         </service>

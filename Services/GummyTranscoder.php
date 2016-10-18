@@ -15,17 +15,7 @@ class GummyTranscoder
     /**
      * @var string
      */
-    private $baseFolder;
-
-    /**
-     * @var string
-     */
-    private $inputBucket;
-
-    /**
-     * @var string
-     */
-    private $outputBucket;
+    private $pipelineId;
 
     /**
      * @var PresetProvider
@@ -34,29 +24,26 @@ class GummyTranscoder
 
     /**
      * GummyTranscoder constructor.
-     * @param $inputBucket
-     * @param $outputBucket
+     * @param string $pipelineId
      * @param \Axelero\AwsTranscoderBundle\Services\PresetProvider $presetProvider
      * @param ElasticTranscoderClient $client
      */
-    public function __construct($inputBucket, $outputBucket, PresetProvider $presetProvider, ElasticTranscoderClient $client)
+    public function __construct($pipelineId, PresetProvider $presetProvider, ElasticTranscoderClient $client)
     {
         $this->client = $client;
-        $this->inputBucket = $inputBucket;
-        $this->outputBucket = $outputBucket;
+        $this->pipelineId = $pipelineId;
         $this->presetProvider = $presetProvider;
     }
 
     /**
      * @param string $path the file path in the input bucket (the same path will be written used in the output one)
-     * @param string $pipelineId the pipeline id
      * @param array $outputs the Output arrays
      * @return \Guzzle\Service\Resource\Model
      */
-    public function encode($path, $pipelineId, array $outputs)
+    public function encode($path, array $outputs)
     {
         $result = $this->client->createJob([
-            'PipelineId' => $pipelineId,
+            'PipelineId' => $this->pipelineId,
             'Input' => [
                 'Key' => $this->cleanPath($path),
                 'FrameRate' => 'auto',
@@ -88,7 +75,7 @@ class GummyTranscoder
             //if used a preset and no Key has been defined for output file
             //then the same path is used
             if ($detail && !$output['Key']) {
-                $output['Key'] = $this->cleanPath($info['dirname']) . '/' . $info['filename'] . '.' . $detail;
+                $output['Key'] = $this->cleanPath($info['dirname'] . '/' . $info['filename'] . '.' . $detail);
             }
         });
 

@@ -21,8 +21,7 @@ class AxeleroAwsTranscoderExtension extends Extension
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
-        $container->setParameter('axelero_aws_transcoder.input_bucket', $config['input_bucket']);
-        $container->setParameter('axelero_aws_transcoder.output_bucket', $config['output_bucket']);
+        $container->setParameter('axelero_aws_transcoder.pipeline_id', $config['pipeline_id']);
         $container->setParameter('axelero_aws_transcoder.key', $config['key']);
         $container->setParameter('axelero_aws_transcoder.region', $config['region']);
         $container->setParameter('axelero_aws_transcoder.secret', $config['secret']);

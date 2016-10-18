@@ -22,7 +22,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('input_bucket')
+                ->scalarNode('pipeline_id')
                     ->isRequired()
             ->end()
                 ->scalarNode('key')
@@ -32,9 +32,6 @@ class Configuration implements ConfigurationInterface
                     ->isRequired()
             ->end()
                 ->scalarNode('region')
-                    ->isRequired()
-            ->end()
-                ->scalarNode('output_bucket')
                     ->isRequired()
             ->end()
         ;

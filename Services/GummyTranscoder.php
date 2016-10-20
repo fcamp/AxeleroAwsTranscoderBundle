@@ -74,7 +74,7 @@ class GummyTranscoder
             $detail = $provider->getDetail($output['PresetId']);
             //if used a preset and no Key has been defined for output file
             //then the same path is used
-            if ($detail && !$output['Key']) {
+            if ($detail && empty($output['Key'])) {
                 $output['Key'] = $this->cleanPath($info['dirname'] . '/' . $info['filename'] . '.' . $detail);
             }
         });

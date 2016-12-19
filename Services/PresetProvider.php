@@ -78,7 +78,7 @@ class PresetProvider
      */
     public function getDetail($presetId)
     {
-        return isset($this->presets[$presetId]) ? $this->presets[$presetId] : null;
+        return isset($this->presets[$presetId]) ? $presetId . '.' .$this->presets[$presetId] : null;
     }
 
 }

@@ -10,7 +10,7 @@
     "require": {
         "axelero/aws-s3-bundle": "0.1.*"
     },  
-    "license": "mit",
+    "license": "MIT",
     "autoload": {
         "psr-4": { "Axelero\\AwsTranscoderBundle\\": "" 
             
